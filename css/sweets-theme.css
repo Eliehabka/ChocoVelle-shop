@@ -1,0 +1,684 @@
+/* ========================================
+   SWEETS SHOP THEME - COMPLETE OVERRIDES
+   ======================================== */
+
+/* Color Variables Override */
+:root {
+    /* Elegant Dessert Shop Color Palette */
+    --bs-primary: #C9A961;      /* Golden Sand - Main brand color (baklawa/honey) */
+    --bs-secondary: #D4A574;     /* Warm Caramel - Secondary accent */
+    --bs-success: #8B7355;       /* Coffee Brown - Success states */
+    --bs-info: #F5E6D3;          /* Cream - Info */
+    --bs-warning: #E8C5A5;       /* Light Caramel - Warnings */
+    --bs-danger: #A67C52;        /* Bronze - Alerts */
+    --bs-light: #FAF7F2;         /* Soft Cream - Light backgrounds */
+    --bs-dark: #5D4E37;          /* Dark Coffee - Text/Dark elements */
+    
+    /* Additional Dessert Colors */
+    --honey-gold: #C9A961;
+    --caramel: #D4A574;
+    --cream: #F5E6D3;
+    --vanilla: #FAF3E0;
+    --pistachio: #93C572;
+    --rose-water: #E8C5A5;
+    --coffee: #6F4E37;
+    --chocolate: #5D4E37;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+body {
+    color: var(--chocolate);
+    background-color: var(--vanilla);
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--coffee);
+    font-family: 'Raleway', 'Georgia', serif;
+}
+
+/* ========================================
+   BUTTONS - COMPLETE OVERRIDE
+   ======================================== */
+
+.btn-primary {
+    background-color: var(--honey-gold) !important;
+    border-color: var(--honey-gold) !important;
+    color: #fff !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #B8964F !important;
+    border-color: #B8964F !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3) !important;
+}
+
+.btn-secondary {
+    background-color: var(--caramel) !important;
+    border-color: var(--caramel) !important;
+    color: #fff !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: #C9A961 !important;
+    border-color: #C9A961 !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+.btn.border-secondary {
+    border-color: var(--caramel) !important;
+    color: var(--honey-gold) !important;
+    background: transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn.border-secondary:hover {
+    background: var(--caramel) !important;
+    color: #fff !important;
+    border-color: var(--caramel) !important;
+}
+
+/* Shopping bag button */
+.btn.border-secondary.text-primary:hover i {
+    color: #fff !important;
+}
+
+/* ========================================
+   NAVBAR & TOPBAR
+   ======================================== */
+
+.topbar {
+    background-color: var(--honey-gold) !important;
+    border-radius: 230px 100px;
+}
+
+.topbar .top-info a,
+.topbar .top-link a {
+    color: #fff !important;
+    transition: color 0.3s ease;
+}
+
+.topbar .top-info a:hover,
+.topbar .top-link a:hover {
+    color: var(--cream) !important;
+}
+
+.navbar {
+    border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+    background: #fff !important;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: var(--coffee) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--honey-gold) !important;
+}
+
+.fixed-top.bg-white .navbar .navbar-nav .nav-link:hover,
+.fixed-top.bg-white .navbar .navbar-nav .nav-link.active {
+    color: var(--honey-gold) !important;
+}
+
+/* Shopping bag badge */
+.position-absolute.bg-secondary {
+    background-color: var(--caramel) !important;
+}
+
+/* Navbar icons */
+.navbar .fa-shopping-bag,
+.navbar .fa-user {
+    color: var(--honey-gold) !important;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-header {
+    background: linear-gradient(rgba(250, 247, 242, 0.95), rgba(245, 230, 211, 0.95)), 
+                url(../img/hero-img.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-header h4.text-secondary {
+    color: var(--caramel) !important;
+}
+
+.hero-header h1.text-dark {
+    color: var(--coffee) !important;
+}
+
+.carousel-item a {
+    background: linear-gradient(rgba(212, 165, 116, 0.85), rgba(212, 165, 116, 0.85)) !important;
+    border: none !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    background: var(--honey-gold) !important;
+    border-color: var(--caramel) !important;
+}
+
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+    background: var(--caramel) !important;
+}
+
+/* ========================================
+   FEATURES SECTION
+   ======================================== */
+
+.featurs-item {
+    background: linear-gradient(135deg, #FAF7F2 0%, #F5E6D3 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent !important;
+}
+
+.featurs-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(201, 169, 97, 0.15) !important;
+    border-color: var(--caramel) !important;
+}
+
+.featurs-icon {
+    background: linear-gradient(135deg, var(--honey-gold) 0%, var(--caramel) 100%) !important;
+}
+
+.featurs-icon::after {
+    background: var(--caramel) !important;
+}
+
+.featurs-content h5 {
+    color: var(--coffee) !important;
+}
+
+/* ========================================
+   PRODUCT CARDS
+   ======================================== */
+
+.fruite-item,
+.vesitable-item {
+    border: 2px solid var(--cream) !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.fruite-item:hover,
+.vesitable-item:hover {
+    box-shadow: 0 15px 35px rgba(201, 169, 97, 0.2) !important;
+    border-color: var(--caramel) !important;
+    transform: translateY(-5px);
+}
+
+.text-white.bg-secondary {
+    background-color: var(--honey-gold) !important;
+}
+
+.border-secondary {
+    border-color: var(--caramel) !important;
+}
+
+.text-primary {
+    color: var(--honey-gold) !important;
+}
+
+.text-secondary {
+    color: var(--caramel) !important;
+}
+
+.bg-primary {
+    background-color: var(--honey-gold) !important;
+}
+
+.bg-secondary {
+    background-color: var(--caramel) !important;
+}
+
+.bg-light {
+    background-color: var(--vanilla) !important;
+}
+
+/* Product price */
+.text-dark.fs-5.fw-bold {
+    color: var(--coffee) !important;
+}
+
+/* Product descriptions */
+.text-muted {
+    color: #8B7355 !important;
+}
+
+/* ========================================
+   TABS & NAVIGATION
+   ======================================== */
+
+.nav-pills .nav-link.active {
+    background-color: var(--caramel) !important;
+}
+
+.nav-pills .nav-link.active span {
+    color: #fff !important;
+}
+
+.nav-pills .nav-link {
+    transition: all 0.3s ease;
+    background-color: var(--vanilla) !important;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: var(--cream) !important;
+}
+
+.nav-pills .nav-link span {
+    color: var(--coffee) !important;
+}
+
+/* ========================================
+   SERVICE ITEMS (FEATURES)
+   ======================================== */
+
+.service-item.bg-secondary {
+    background-color: var(--caramel) !important;
+    border-color: var(--caramel) !important;
+}
+
+.service-item.bg-primary {
+    background-color: var(--honey-gold) !important;
+    border-color: var(--honey-gold) !important;
+}
+
+.service-item.bg-dark {
+    background-color: var(--coffee) !important;
+    border-color: var(--coffee) !important;
+}
+
+.service-content.bg-primary {
+    background-color: var(--honey-gold) !important;
+    color: #fff !important;
+}
+
+.service-content.bg-secondary {
+    background-color: var(--caramel) !important;
+    color: #fff !important;
+}
+
+.service-content.bg-light {
+    background-color: var(--vanilla) !important;
+}
+
+.service-content.bg-light h5 {
+    color: var(--honey-gold) !important;
+}
+
+.service-content.bg-light h3 {
+    color: var(--coffee) !important;
+}
+
+/* ========================================
+   BANNER SECTION
+   ======================================== */
+
+.banner.bg-secondary {
+    background: linear-gradient(135deg, #F5E6D3 0%, var(--caramel) 50%, var(--honey-gold) 100%) !important;
+}
+
+.banner h1.text-white {
+    color: #fff !important;
+    text-shadow: 2px 2px 4px rgba(111, 78, 55, 0.3);
+}
+
+.banner p.text-dark {
+    color: var(--coffee) !important;
+}
+
+.banner-btn {
+    border-color: #fff !important;
+    background-color: var(--vanilla) !important;
+    color: var(--coffee) !important;
+    transition: all 0.3s ease !important;
+}
+
+.banner-btn:hover {
+    background-color: #fff !important;
+    color: var(--honey-gold) !important;
+    border-color: var(--honey-gold) !important;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background: linear-gradient(135deg, var(--coffee) 0%, var(--chocolate) 100%) !important;
+}
+
+.footer .text-primary {
+    color: var(--honey-gold) !important;
+}
+
+.footer .text-secondary {
+    color: var(--cream) !important;
+}
+
+.footer .btn-outline-secondary {
+    border-color: var(--caramel) !important;
+    color: var(--caramel) !important;
+}
+
+.footer .btn-outline-secondary:hover {
+    background-color: var(--caramel) !important;
+    color: #fff !important;
+}
+
+.footer .btn-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footer .btn-link:hover {
+    color: var(--caramel) !important;
+}
+
+.footer .btn.border-secondary.text-primary {
+    background-color: var(--vanilla) !important;
+}
+
+.footer .btn.border-secondary.text-primary:hover {
+    background-color: var(--caramel) !important;
+    color: #fff !important;
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+.form-control:focus {
+    border-color: var(--caramel) !important;
+    box-shadow: 0 0 0 0.25rem rgba(201, 169, 97, 0.25) !important;
+}
+
+input[type="search"],
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    border-color: var(--cream) !important;
+    background-color: var(--vanilla) !important;
+    color: var(--coffee) !important;
+}
+
+/* Search modal */
+#searchModal .input-group-text {
+    background-color: var(--honey-gold) !important;
+    border-color: var(--honey-gold) !important;
+    color: #fff !important;
+}
+
+/* ========================================
+   STAR RATINGS
+   ======================================== */
+
+.fa-star.text-primary,
+.fas.fa-star.text-primary {
+    color: var(--honey-gold) !important;
+}
+
+/* ========================================
+   COUNTER SECTION
+   ======================================== */
+
+.counter {
+    background: linear-gradient(135deg, #FAF7F2 0%, #F5E6D3 100%);
+    border: 2px solid var(--caramel);
+    transition: transform 0.3s ease;
+}
+
+.counter:hover {
+    transform: translateY(-5px);
+}
+
+.counter i {
+    color: var(--honey-gold) !important;
+    font-size: 60px;
+}
+
+.counter h4 {
+    color: var(--coffee) !important;
+    font-size: 1.1rem;
+}
+
+.counter h1 {
+    color: var(--honey-gold) !important;
+    font-size: 3rem;
+}
+
+/* ========================================
+   MISC ELEMENTS
+   ======================================== */
+
+/* Back to top button */
+.back-to-top {
+    background-color: var(--honey-gold) !important;
+    border-color: var(--honey-gold) !important;
+    transition: all 0.3s ease !important;
+}
+
+.back-to-top:hover {
+    background-color: var(--caramel) !important;
+    border-color: var(--caramel) !important;
+    transform: translateY(-3px);
+}
+
+/* Shopping cart badge */
+.position-absolute.bg-secondary {
+    background-color: var(--caramel) !important;
+    color: #fff !important;
+}
+
+/* Modal */
+.modal-content {
+    background-color: var(--vanilla) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--cream) !important;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes sweetsBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.featurs-icon:hover {
+    animation: sweetsBounce 0.6s ease-in-out;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+    .hero-header h1 {
+        font-size: 2rem !important;
+    }
+    
+    .banner h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    .display-3 {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* ========================================
+   SPECIAL EFFECTS
+   ======================================== */
+
+/* Subtle pattern for light backgrounds */
+.bg-light {
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(201, 169, 97, 0.03) 10px,
+            rgba(201, 169, 97, 0.03) 20px
+        ) !important;
+}
+
+/* Elegant button shine effect */
+.btn-primary,
+.btn-secondary {
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary::before,
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+/* ========================================
+   FIXES FOR BOOTSTRAP DEFAULT COLORS
+   ======================================== */
+
+/* Ensure all primary elements use our colors */
+a.text-primary:hover,
+a.text-primary:focus {
+    color: #B8964F !important;
+}
+
+/* Fix for any remaining Bootstrap blue */
+.text-primary:not(.btn):not(.badge):not(.alert) {
+    color: var(--honey-gold) !important;
+}
+
+.text-secondary:not(.btn):not(.badge):not(.alert) {
+    color: var(--caramel) !important;
+}
+
+/* Fix for background colors */
+.bg-primary:not(.btn):not(.badge):not(.alert) {
+    background-color: var(--honey-gold) !important;
+}
+
+.bg-secondary:not(.btn):not(.badge):not(.alert) {
+    background-color: var(--caramel) !important;
+}
+
+/* Fix border colors */
+.border-primary {
+    border-color: var(--honey-gold) !important;
+}
+
+.border-secondary {
+    border-color: var(--caramel) !important;
+}
+
+/* Fix spinner */
+.spinner-grow.text-primary {
+    color: var(--honey-gold) !important;
+}
+
+/* Fix badge colors */
+.badge.bg-primary {
+    background-color: var(--honey-gold) !important;
+}
+
+.badge.bg-secondary {
+    background-color: var(--caramel) !important;
+}
+
+/* Fix the topbar gradient */
+.topbar.bg-primary {
+    background: linear-gradient(135deg, var(--honey-gold) 0%, #D4A574 100%) !important;
+}
+
+/* ========================================
+   SWEET-SPECIFIC STYLES
+   ======================================== */
+
+/* Add candy-like rounded corners to product images */
+.fruite-img img,
+.vesitable-img img {
+    border-radius: 10px 10px 0 0;
+}
+
+/* Sweet-themed hover effects */
+.fruite-item .fruite-img,
+.vesitable-item .vesitable-img {
+    overflow: hidden;
+}
+
+.fruite-item .fruite-img img,
+.vesitable-item .vesitable-img img {
+    transition: transform 0.5s ease;
+}
+
+.fruite-item:hover .fruite-img img,
+.vesitable-item:hover .vesitable-img img {
+    transform: scale(1.1);
+}
+
+/* Add subtle sweet scent effect (border animation) */
+@keyframes sweetGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(201, 169, 97, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
+    }
+}
+
+.fruite-item:hover,
+.vesitable-item:hover {
+    animation: sweetGlow 2s infinite;
+}
