@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SweetDelights - Artisanal Desserts</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #C9A961;
+            --secondary: #8B4513;
+            --dark: #2C1810;
+            --light: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background: #FFF;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .logo:hover {
+            color: var(--secondary);
+        }
+
+        .cart-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .cart-icon i {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(201, 169, 97, 0.1), rgba(201, 169, 97, 0.05));
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .badge-item span {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .btn-shop {
+            background: var(--primary);
+            color: white;
+            padding: 16px 45px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        .btn-shop:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            padding: 16px 45px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 700;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .promo-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 0;
+            background: var(--light);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .stat-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-card .category-info {
+            padding: 30px;
+            text-align: center;
+            background: white;
+        }
+
+        .category-card h3 {
+            color: var(--dark);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .category-card p {
+            color: #666;
+            margin: 0;
+        }
+
+        /* Featured Products */
+        .featured-section {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-card .product-info {
+            padding: 25px;
+        }
+
+        .product-card h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-card .price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-card .description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .product-card .btn-add {
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .product-card .btn-add:hover {
+            background: var(--secondary);
+        }
+
+        /* Testimonial */
+        .testimonial-section {
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .testimonial-card .stars {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-card .author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-section {
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .badge-row {
+                gap: 15px;
+            }
+            
+            .hero-image {
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="index.html" class="logo">SweetDelights</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1>Handcrafted Artisanal Desserts</h1>
+                        <p>French-inspired pastries, chocolates, and cakes made fresh daily with premium ingredients. Every bite tells a story of tradition and passion.</p>
+                        
+                        <div class="badge-row">
+                            <div class="badge-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Fresh Daily</span>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-award"></i>
+                                <span>Premium Quality</span>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-truck"></i>
+                                <span>Free Delivery</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a href="shop.html" class="btn-shop">Shop Now</a>
+                            <a href="about.html" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="img/hero-img-1.png" alt="Delicious Desserts">
+                        <div class="promo-badge">20% OFF</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>10K+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <i class="fas fa-box"></i>
+                        <h3>45K+</h3>
+                        <p>Orders Delivered</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>4.9</h3>
+                        <p>Average Rating</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h3>150+</h3>
+                        <p>Products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse Our Collections</h2>
+                <p>Explore our range of handcrafted desserts</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <a href="shop.html?category=Pastries" class="category-card">
+                        <img src="img/fruite-item-4.jpg" alt="Pastries">
+                        <div class="category-info">
+                            <h3>Pastries</h3>
+                            <p>Buttery croissants & more</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="shop.html?category=Chocolates" class="category-card">
+                        <img src="img/fruite-item-2.jpg" alt="Chocolates">
+                        <div class="category-info">
+                            <h3>Chocolates</h3>
+                            <p>Belgian chocolate truffles</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="shop.html?category=Cakes" class="category-card">
+                        <img src="img/fruite-item-3.jpg" alt="Cakes">
+                        <div class="category-info">
+                            <h3>Cakes</h3>
+                            <p>Custom celebration cakes</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bestsellers</h2>
+                <p>Our most loved treats</p>
+            </div>
+            <div class="row g-4" id="favorite-products">
+                <!-- Products loaded from JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"The macarons are absolutely divine! Best I've ever tasted outside of Paris."</p>
+                        <div class="author">Sarah M.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Perfect for special occasions. The quality and presentation are exceptional."</p>
+                        <div class="author">James L.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Fresh, delicious, and beautifully packaged. Will definitely order again!"</p>
+                        <div class="author">Emma R.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-section">
+                        <h4>SweetDelights</h4>
+                        <p>Artisanal desserts crafted with passion and the finest ingredients.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">Home</a>
+                        <a href="shop.html">Shop</a>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@sweetdelights.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Patisserie St, Paris</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-section">
+                        <h4>Hours</h4>
+                        <p>Mon-Fri: 8AM - 8PM</p>
+                        <p>Saturday: 9AM - 9PM</p>
+                        <p>Sunday: 10AM - 6PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SweetDelights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+    
+    <script>
+        // Load favorite products
+        async function loadFavoriteProducts() {
+            const products = await loadProducts();
+            const container = document.getElementById('favorite-products');
+            const favorites = products.filter(p => p.favorite).slice(0, 3);
+            
+            container.innerHTML = '';
+            favorites.forEach(product => {
+                container.innerHTML += `
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="${product.image}" alt="${product.name}">
+                            <div class="product-info">
+                                <h4>${product.name}</h4>
+                                <div class="price">$${product.price.toFixed(2)}</div>
+                                <div class="description">${product.description}</div>
+                                <button class="btn-add" onclick="addToCart(${product.id})">
+                                    <i class="fa fa-shopping-bag"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFavoriteProducts();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

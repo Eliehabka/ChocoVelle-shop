@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Shop - SweetDelights</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #C9A961;
+            --secondary: #8B4513;
+            --dark: #2C1810;
+            --light: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background: #FAFAFA;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--secondary);
+        }
+
+        .cart-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .cart-icon i {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Banner */
+        .shop-banner {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .shop-banner h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .shop-banner p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Search Bar */
+        .search-section {
+            padding: 30px 0;
+            background: white;
+        }
+
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 15px 60px 15px 25px;
+            border: 2px solid var(--light);
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Filters */
+        .filters-section {
+            padding: 40px 0 30px;
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .filter-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .product-count {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .filter-buttons {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .filter-btn {
+            background: var(--light);
+            border: 2px solid var(--light);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 30px 0 80px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 10;
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .quick-view {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100%);
+            background: white;
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .product-card:hover .quick-view {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .product-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .product-rating {
+            color: #FFD700;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .product-price {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-buttons {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-view {
+            flex: 1;
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--primary);
+            padding: 12px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .btn-view:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-add-cart {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--secondary);
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(139, 69, 19, 0.1));
+            padding: 50px 0;
+            margin: 60px 0;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .promo-banner h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .promo-banner p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .promo-banner .btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .promo-banner .btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .shop-banner h1 {
+                font-size: 2.2rem;
+            }
+            
+            .filter-buttons {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="index.html" class="logo">SweetDelights</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="shop-banner">
+        <div class="container">
+            <h1>Our Delicious Collection</h1>
+            <p>Handcrafted desserts made with love and premium ingredients</p>
+        </div>
+    </section>
+
+    <!-- Search -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for macarons, cakes, chocolates...">
+                <button onclick="performSearch()"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters & Products -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filter-header">
+                <h3>Browse Products</h3>
+                
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterByCategory('all')">All Products</button>
+                <button class="filter-btn" onclick="filterByCategory('Macarons')">Macarons</button>
+                <button class="filter-btn" onclick="filterByCategory('Chocolates')">Chocolates</button>
+                <button class="filter-btn" onclick="filterByCategory('Cakes')">Cakes</button>
+                <button class="filter-btn" onclick="filterByCategory('Pastries')">Pastries</button>
+                <button class="filter-btn" onclick="filterByCategory('Cookies')">Cookies</button>
+                <button class="filter-btn" onclick="filterByCategory('Brownies')">Brownies</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="row g-4" id="products-container">
+                <div class="col-12 text-center">
+                    <p>Loading products...</p>
+                </div>
+            </div>
+            
+            <!-- Promo Banner -->
+            <div class="promo-banner">
+                <h3>🎉 Special Offer!</h3>
+                <p>Get 20% off on orders above $50. Limited time only!</p>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+    
+    <script>
+        let allProducts = [];
+
+        // Override product card template
+        function createProductCard(product) {
+            return `
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            ${product.favorite ? '<div class="product-badge">Bestseller</div>' : ''}
+                            <img src="${product.image}" class="product-image" alt="${product.name}">
+                            <a href="product.html?id=${product.id}" class="quick-view">Quick View</a>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-name">${product.name}</h3>
+                            <div class="product-rating">★★★★★</div>
+                            <div class="product-price">$${product.price.toFixed(2)}</div>
+                            <div class="product-buttons">
+                                <a href="product.html?id=${product.id}" class="btn-view">View Details</a>
+                                <button class="btn-add-cart" onclick="addToCart(${product.id}); return false;">
+                                    <i class="fa fa-shopping-bag"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update filter buttons
+        function filterByCategory(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            const container = document.getElementById('products-container');
+            let filtered = category === 'all' ? allProducts : allProducts.filter(p => p.category === category);
+            
+            container.innerHTML = '';
+            filtered.forEach(product => {
+                container.innerHTML += createProductCard(product);
+            });
+            
+            document.getElementById('product-count').textContent = 
+                `Showing ${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+        }
+
+        // Search function
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const container = document.getElementById('products-container');
+            
+            const filtered = allProducts.filter(p => 
+                p.name.toLowerCase().includes(searchTerm) ||
+                p.description.toLowerCase().includes(searchTerm) ||
+                p.category.toLowerCase().includes(searchTerm)
+            );
+            
+            container.innerHTML = '';
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center"><p>No products found</p></div>';
+            } else {
+                filtered.forEach(product => {
+                    container.innerHTML += createProductCard(product);
+                });
+            }
+            
+            document.getElementById('product-count').textContent = 
+                `Showing ${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+        }
+
+        // Load products
+        async function loadAllProducts() {
+            allProducts = await loadProducts();
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+            allProducts.forEach(product => {
+                container.innerHTML += createProductCard(product);
+            });
+            document.getElementById('product-count').textContent = 
+                `Showing ${allProducts.length} products`;
+        }
+
+        // Add enter key search
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllProducts();
+            updateCartCount();
+            
+            document.getElementById('search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>About Us - SweetDelights</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #C9A961;
+            --secondary: #8B4513;
+            --dark: #2C1810;
+            --light: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .logo:hover {
+            color: var(--secondary);
+        }
+
+
+        .cart-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .cart-icon i {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-content {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .info-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: #666;
+        }
+
+        .btn-shop {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+
+        .btn-shop:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .social-icons a {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
+
+        .social-icons a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                padding: 40px 25px;
+            }
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="index.html" class="logo">SweetDelights</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa fa-shopping-bag"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h1 class="page-title">About SweetDelights</h1>
+
+                <p class="about-text">
+                    We are a family-owned artisanal dessert shop specializing in French-inspired pastries, 
+                    handcrafted chocolates, and elegant cakes. Every item is made fresh daily using premium 
+                    ingredients and traditional baking techniques.
+                </p>
+
+                <p class="about-text">
+                    What started as a passion for creating beautiful desserts has grown into a commitment 
+                    to bringing joy to every customer through exceptional quality and authentic flavors.
+                </p>
+
+                <div class="highlight-box">
+                    <h3>Why Choose SweetDelights?</h3>
+                    <p class="about-text" style="margin-bottom: 0;">
+                        We believe in quality over quantity. Our small-batch approach ensures every macaron, 
+                        truffle, and croissant meets our high standards. We source premium ingredients and 
+                        never compromise on taste or freshness.
+                    </p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Location</h4>
+                        <p>Serving Paris and surrounding areas with fresh daily deliveries</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Delivery</h4>
+                        <p>Same-day delivery available for orders placed before 2 PM</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-award"></i>
+                        <h4>Quality</h4>
+                        <p>Premium ingredients, traditional methods, exceptional results</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="shop.html" class="btn-shop">Shop Our Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="mb-3">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>

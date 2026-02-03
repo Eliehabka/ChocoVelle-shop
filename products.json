@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "name": "French Macarons",
+        "category": "Macarons",
+        "description": "Delicate almond cookies with buttercream filling",
+        "price": 24.99,
+        "unit": "box of 12",
+        "image": "img/fruite-item-5.jpg",
+        "featured": true,
+        "favorite": true
+    },
+    {
+        "id": 2,
+        "name": "Chocolate Truffles",
+        "category": "Chocolates",
+        "description": "Handcrafted Belgian chocolate truffles",
+        "price": 32.99,
+        "unit": "box",
+        "image": "img/fruite-item-2.jpg",
+        "featured": true,
+        "favorite": true
+    },
+    {
+        "id": 3,
+        "name": "Tiramisu Cake",
+        "category": "Cakes",
+        "description": "Classic Italian dessert with espresso-soaked ladyfingers",
+        "price": 45.00,
+        "unit": "whole cake",
+        "image": "img/fruite-item-3.jpg",
+        "featured": false,
+        "favorite": false
+    },
+    {
+        "id": 4,
+        "name": "Croissants",
+        "category": "Pastries",
+        "description": "Buttery, flaky French croissants",
+        "price": 15.99,
+        "unit": "pack of 6",
+        "image": "img/fruite-item-4.jpg",
+        "featured": true,
+        "favorite": true
+    },
+    {
+        "id": 5,
+        "name": "Artisan Cookies",
+        "category": "Cookies",
+        "description": "Handcrafted cookies with premium ingredients",
+        "price": 12.99,
+        "unit": "dozen",
+        "image": "img/fruite-item-6.jpg",
+        "featured": false,
+        "favorite": false
+    },
+    {
+        "id": 6,
+        "name": "Fudge Brownies",
+        "category": "Brownies",
+        "description": "Rich, fudgy brownies with chocolate chunks",
+        "price": 8.99,
+        "unit": "each",
+        "image": "img/fruite-item-1.jpg",
+        "featured": false,
+        "favorite": true
+    },
+    {
+        "id": 7,
+        "name": "Raspberry Tart",
+        "category": "Tarts",
+        "description": "Fresh raspberries on vanilla custard with buttery crust",
+        "price": 28.50,
+        "unit": "whole tart",
+        "image": "img/fruite-item-5.jpg",
+        "featured": true,
+        "favorite": true
+    },
+    {
+        "id": 8,
+        "name": "Eclairs",
+        "category": "Pastries",
+        "description": "Light choux pastry filled with cream and topped with chocolate",
+        "price": 18.99,
+        "unit": "pack of 4",
+        "image": "img/fruite-item-2.jpg",
+        "featured": false,
+        "favorite": false
+    },
+    {
+        "id": 9,
+        "name": "Cheesecake",
+        "category": "Cakes",
+        "description": "Creamy New York style cheesecake with graham cracker crust",
+        "price": 38.00,
+        "unit": "whole cake",
+        "image": "img/fruite-item-3.jpg",
+        "featured": true,
+        "favorite": true
+    }
+]
